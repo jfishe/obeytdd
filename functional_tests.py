@@ -1,5 +1,5 @@
 '''
-Functional Tests superlists
+Functional Tests for superlists
 '''
 from selenium import webdriver
 import unittest
