@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from lists.models import Item
 
@@ -9,8 +8,6 @@ def home_page(request):
 
     Todo
     ----
-    * Don't save blank items for every request.
-    * Code smell: POST test is too long?
     * Display multiple items in the table.
     * Support more than one list!
 
@@ -22,10 +19,8 @@ def home_page(request):
         Return is....
 
     """
-    item = Item()
-    item.text = request.POST.get('item_text', '')
-    item.save()
+    if request.method == 'POST':
+        Item.objects.create(text=request.POST['item_text'])
+        return redirect('/')
 
-    return render(request, 'home.html',
-                  {'new_item_text': request.POST.get('item_text', ''),
-                  })
+    return render(request, 'home.html')
