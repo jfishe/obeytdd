@@ -8,7 +8,8 @@ def home_page(request):
 
     Todo
     ----
-    * Display multiple items in the table.
+    * Clean up after FT runs.
+    * Remove time.sleeps.
     * Support more than one list!
 
     Parameters
