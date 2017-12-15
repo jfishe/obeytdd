@@ -102,6 +102,7 @@ Temporary Items
 *.swp
 .viminfo
 _viminfo
+session.vim
 backups/
 tags*
 .netrwhist
