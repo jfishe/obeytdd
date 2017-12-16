@@ -8,8 +8,6 @@ def home_page(request):
 
     Todo
     ----
-    * Clean up after FT runs.
-    * Remove time.sleeps.
     * Support more than one list!
 
     Parameters
