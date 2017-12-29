@@ -1,6 +1,6 @@
-'''
+"""
 Functional Tests for superlists
-'''
+"""
 import time
 
 from django.test import LiveServerTestCase  # type: ignore
@@ -47,7 +47,7 @@ class NewVisitorTest(LiveServerTestCase):
         # She notices the page title and header mention to-do lists.
         self.assertIn('To-Do', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('Your To-Do list', header_text)
+        self.assertIn('Start a new To-Do list', header_text)
 
         # She is invited to enter a to-do item straight away.
         inputbox = self.browser.find_element_by_id('id_new_item')
@@ -88,7 +88,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # She notices that her list has a unique URL.
         edith_list_url = self.browser.current_url
-        self.assertRegex(edith_list_url, '/list/.+')
+        self.assertRegex(edith_list_url, '/lists/.+')
 
         # Now a new user, Francis, comes along to the site.
 
