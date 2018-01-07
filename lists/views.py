@@ -13,9 +13,7 @@ def home_page(request):
 
     Todo
     ----
-    * Adjust model so that items are associated with different lists.
-    * Add unique URLs for each list.
-    * Add URLs for adding a new item to an existing list via POST.
+    * Refactor away some duplication in urls.py
 
     Parameters
     ----------
@@ -28,13 +26,19 @@ def home_page(request):
     return render(request, 'home.html')
 
 
-def view_list(request):
+def view_list(request, list_id):
     """TODO: Docstring for view_list."""
-    items = Item.objects.all()
-    return render(request, 'list.html', {'items': items})
+    list_ = List.objects.get(id=list_id)
+    return render(request, 'list.html', {'list': list_})
 
 def new_list(request):
     """TODO: Docstring for new_list."""
     list_ = List.objects.create()
     Item.objects.create(text=request.POST['item_text'], list=list_)
-    return redirect('/lists/the-only-list-in-the-world/')
+    return redirect(f'/lists/{list_.id}/')
+
+def add_item(request, list_id):
+    """TODO: Docstring for add_item."""
+    list_ = List.objects.get(id=list_id)
+    Item.objects.create(text=request.POST['item_text'], list=list_)
+    return redirect(f'/lists/{list_.id}/')
