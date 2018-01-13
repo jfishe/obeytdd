@@ -3,10 +3,10 @@ Functional Tests for superlists
 """
 import time
 
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase  # type: ignore
-from selenium import webdriver  # type: ignore
-from selenium.common.exceptions import WebDriverException  # type: ignore
-from selenium.webdriver.common.keys import Keys  # type: ignore
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.common.keys import Keys
 
 MAX_WAIT = 10
 """int: Selenium timeout (seconds)"""
